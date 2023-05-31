@@ -1,2 +1,47 @@
 # addbinary.cpp
 Addition of 2 binary numbers
+
+#include <iostream>
+  
+using namespace std;
+  
+//for converting the binary input into decimal
+int binarytodecimal(int n)
+{
+    int ans=0;
+    int x=1;
+    while (n>0)
+    {
+        int y=n%10;
+        ans+=x*y;
+        x*=2;
+        n = n/10;
+  }
+    return ans;    
+}
+
+int decimaltobinary(int n)
+{
+
+if(n==0){
+return 0;
+}
+return n % 2 + 10 * decimaltobinary(n/2);
+}
+
+int main() {
+    int a, b;
+
+    cin >> a >> b;
+
+ int y= binarytodecimal(a);     //converting the first input into decimal number
+  
+ int z=binarytodecimal(b);      //converting the second  input into decimal number
+  
+int sum=y+z;                    //adding the two numbers
+  
+int addB=decimaltobinary(sum);  //converting the sum into binary number again
+  
+cout<<addB<<endl;
+  return 0;
+  }
