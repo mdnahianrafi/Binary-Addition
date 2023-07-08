@@ -1,0 +1,68 @@
+A C++ program to check a binary number and find out the ones compliment if needed.
+#include <iostream>
+using namespace std;
+class binary
+{
+//string variable defined as private.
+    string s;
+
+public:
+//To read a binary number using variable "s" form private section.
+    void read_bin(void)
+    {
+        cout << "Enter a binary number:";
+        cin >> s;
+    }
+    // A function to check wether the number is binary or not.
+    void chk_bin()
+    {
+        // Checking the number if there is other character than 1s and 0s.
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s.at(i) != '0' && s.at(i) != '1')
+            {
+                cout << "Incorrect binary number" << endl;
+                return;
+            }
+        }
+        cout << "correct binary number";
+    }
+    // Function to calculate ones compliment.
+    void onec()
+    {
+        chk_bin();
+        for (int i = 0; i < s.length(); i++)
+        {
+            if (s.at(i) == '0')
+            {
+                s.at(i) = '1';
+            }
+            else
+            {
+                s.at(i) = '0';
+            }
+        }
+    }
+    // Function to display output.
+    void display(void)
+    {
+        cout <<endl<<"The output is :";
+        for (int i = 0; i < s.length(); i++)
+        {
+            cout << s.at(i);
+        }
+        cout << endl;
+    }
+};
+
+int main()
+{
+//Calling the binary class named b.
+    binary b;
+    // calling th binary object b with the function needed.
+    b.read_bin();
+    b.display();
+    b.onec();
+    b.display();
+    return 0;
+}                      
